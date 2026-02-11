@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Verifikasi Dokumen - KARTU KELUARGA WNI</title>
+
+  <!-- Tailwind Play CDN (untuk kemudahan demo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font & base styling -->
+  <style>
+    html, body { height: 100%; }
+    body {
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background-color: #f3f4f6;
+    }
+
+    /* Overlay blur background image (rak arsip) */
+    .bg-archive {
+      background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1600&auto=format&fit=crop&ixlib=rb-4.0.3&s='); /* fallback online image */
+      background-size: cover;
+      background-position: center;
+      filter: blur(4px) saturate(.9) brightness(.8);
+      transform: scale(1.02);
+    }
+
+    /* custom small scrollbar for card (optional aesthetic) */
+    .card-scroll::-webkit-scrollbar { width: 8px; }
+    .card-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.08); border-radius: 999px; }
+
+    /* centang hijau custom */
+    .accent-green { background: #009B77; }
+    .text-secondary { color: #444444; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- Background wrapper -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute inset-0 bg-archive"></div>
+    <div class="absolute inset-0 bg-white/60"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="relative z-10">
+    <div class="max-w-6xl mx-auto px-6 py-6 flex items-center gap-4">
+      <!-- small logo (SVG) -->
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-md bg-white/80 flex items-center justify-center shadow-sm">
+          <!-- simple emblem SVG -->
+          <svg viewBox="0 0 24 24" class="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" fill="#0ea5a3"/>
+            <path d="M8 12L11 15L16 9" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="text-sm text-secondary leading-tight font-semibold">DIREKTORAT JENDERAL KEPENDUDUKAN</div>
+          <div class="text-xs text-gray-600">DAN PENCATATAN SIPIL</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main centered content -->
+  <main class="relative z-10 flex-1 flex items-start justify-center py-12 px-4">
+    <div class="w-full max-w-6xl">
+
+      <!-- Center card -->
+      <div class="bg-white/95 backdrop-blur-sm shadow-2xl rounded-2xl overflow-hidden border border-white/60">
+        <div class="p-8 md:p-10 lg:p-14 grid grid-cols-1 md:grid-cols-12 gap-6">
+          
+          <!-- Left content (main info) -->
+          <div class="md:col-span-8">
+            <!-- Title & breadcrumbs -->
+            <div class="flex items-center justify-between gap-6">
+              <div>
+                <h1 class="text-xl md:text-2xl font-semibold text-teal-700">KARTU KELUARGA WNI</h1>
+                <div class="text-sm text-gray-500 mt-1">Pindai Dokumen • <span class="text-teal-600 font-medium">Terpusat</span></div>
+              </div>
+
+              <!-- Action buttons (mock) -->
+              <div class="flex items-center gap-3">
+                <label for="fileUpload" class="cursor-pointer inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white hover:shadow-sm transition-shadow text-sm border border-gray-200">
+                  <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h10M7 16h10"/></svg>
+                  Unggah Dokumen
+                </label>
+
+                <button id="scanBtn" class="px-3 py-2 rounded-lg border border-teal-700 text-teal-700 hover:bg-teal-700 hover:text-white transition">
+                  Pindai (Mock)
+                </button>
+
+                <input id="fileUpload" type="file" accept="image/*,.pdf" class="hidden" />
+              </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="mt-6 border-t border-gray-100"></div>
+
+            <!-- Info rows - looks like table -->
+            <div class="mt-6 space-y-6">
+              <!-- Row 1 -->
+              <div class="flex flex-col md:flex-row md:items-center md:gap-4">
+                <div class="w-40 text-sm font-medium text-secondary">Status dokumen</div>
+                <div class="flex-1">
+                  <span class="inline-block px-3 py-1 rounded-full text-sm font-semibold text-white bg-green-600/95">AKTIF</span>
+                </div>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="flex flex-col md:flex-row md:items-center md:gap-4">
+                <div class="w-40 text-sm font-medium text-secondary">No. KK</div>
+                <div class="flex-1 text-sm font-mono tracking-widest text-gray-700">1274010702260***</div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="flex flex-col md:flex-row md:items-center md:gap-4">
+                <div class="w-40 text-sm font-medium text-secondary">Nama Kepala Keluarga</div>
+                <div class="flex-1 text-sm text-gray-700 font-semibold">INDRA TEPANUS TAMPUBOLON</div>
+              </div>
+
+              <!-- Row 4 -->
+              <div class="flex flex-col md:flex-row md:items-center md:gap-4">
+                <div class="w-40 text-sm font-medium text-secondary">Nama Istri</div>
+                <div class="flex-1 text-sm text-gray-700">WINDA APRIYANI SIHOMBING</div>
+              </div>
+
+              <!-- Row 5 -->
+              <div class="flex flex-col md:flex-row md:items-center md:gap-4">
+                <div class="w-40 text-sm font-medium text-secondary">Daerah</div>
+                <div class="flex-1 text-sm text-gray-700">PEMERINTAH KABUPATEN CIREBON</div>
+              </div>
+
+              <!-- Row 6 -->
+              <div class="flex flex-col md:flex-row md:items-center md:gap-4">
+                <div class="w-40 text-sm font-medium text-secondary">Penandatangan</div>
+                <div class="flex-1 text-sm text-gray-700">H. IMAN SUPRIADI, S.Sos., M.Si.</div>
+              </div>
+
+              <!-- Tanggal info (two columns) -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <div class="text-sm font-medium text-secondary">Tanggal Pindai</div>
+                  <div class="mt-1 text-sm text-gray-700 flex items-center gap-3">
+                    <!-- calendar icon -->
+                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3M16 7V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span id="scanDate" class="font-medium">--/--/----</span>
+                    <span class="text-xs text-gray-500">•</span>
+                    <span id="scanTime" class="text-sm text-gray-600">--:--:--</span>
+                  </div>
+                </div>
+
+                <div>
+                  <div class="text-sm font-medium text-secondary">Tgl. Penandatanganan</div>
+                  <div class="mt-1 text-sm text-gray-700 flex items-center gap-3">
+                    <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3M16 7V3M3 11h18M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    <span class="font-medium">07-02-2026</span>
+                    <span class="text-xs text-gray-500">•</span>
+                    <span class="text-sm text-gray-600">11:44:58</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom small notice -->
+            <div class="mt-8 text-sm text-gray-600">
+              Dokumen ini telah ditandatangani secara elektronik menggunakan sertifikat elektronik yang diterbitkan oleh Balai Sertifikasi Elektronik (BSrE), BSSN
+            </div>
+          </div>
+
+          <!-- Right content (big check icon and meta) -->
+          <div class="md:col-span-4 flex flex-col items-center justify-start">
+            <!-- big check circle -->
+            <div class="w-40 h-40 rounded-full flex items-center justify-center accent-green text-white shadow-md">
+              <svg class="w-20 h-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="11" fill="#009B77" opacity="0.12"/>
+                <path d="M6 12.5L10 16L18 8" stroke="#009B77" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+
+            <div class="mt-6 text-center">
+              <div class="text-sm text-gray-500">Verifikasi</div>
+              <div class="text-lg font-semibold text-secondary mt-1">Terverifikasi Secara Elektronik</div>
+              <div class="text-xs text-gray-400 mt-4">Log: <span id="uploadInfo" class="text-gray-600">Tidak ada file terunggah</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer area inside card -->
+        <div class="border-t border-gray-100 mt-2 p-4 md:p-6 flex items-center justify-between gap-4 flex-col md:flex-row">
+          <div class="flex items-center gap-3">
+            <!-- inline simple Balai Sertifikasi Elektronik logo (SVG) -->
+            <div class="w-10 h-10 rounded-md bg-sky-50 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" class="w-8 h-8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2L20 7V17L12 22L4 17V7L12 2Z" fill="#00A3E0"/>
+                <path d="M8 10H16M8 14H12" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-sm text-secondary font-semibold">Balai Sertifikasi Elektronik</div>
+              <div class="text-xs text-gray-500">Sertifikat elektronik terbitan BSSN</div>
+            </div>
+          </div>
+
+          <div class="text-sm text-gray-500">
+            <span class="mr-4">Alamat IP: <span class="font-mono text-gray-600">182.5.8.13</span></span>
+            <span>Versi: <span class="font-mono text-gray-600">82.0.1</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Small page footer (outside card) -->
+  <footer class="relative z-10 text-center py-6 text-xs text-gray-500">
+    Ditjen Dukcapil Kemendagri • SIAK Integrasi
+  </footer>
+
+  <!-- JavaScript: real-time clock + upload mock -->
+  <script>
+    // Format functions
+    function pad(n){ return n < 10 ? '0' + n : n; }
+    function formatDate(d){
+      return pad(d.getDate()) + '-' + pad(d.getMonth()+1) + '-' + d.getFullYear();
+    }
+    function formatTime(d){
+      return pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds());
+    }
+
+    // Update scan (current) date/time every second
+    const scanDateEl = document.getElementById('scanDate');
+    const scanTimeEl = document.getElementById('scanTime');
+    function updateNow(){
+      const now = new Date();
+      scanDateEl.textContent = formatDate(now);
+      scanTimeEl.textContent = formatTime(now);
+    }
+    updateNow();
+    setInterval(updateNow, 1000);
+
+    // Mock upload/scan behaviour
+    const fileInput = document.getElementById('fileUpload');
+    const uploadInfo = document.getElementById('uploadInfo');
+    const scanBtn = document.getElementById('scanBtn');
+
+    // When user chooses a file, show file name (mock verification)
+    fileInput.addEventListener('change', (e) => {
+      const f = e.target.files && e.target.files[0];
+      if(!f) {
+        uploadInfo.textContent = 'Tidak ada file terunggah';
+        return;
+      }
+      // show truncated filename
+      const name = f.name.length > 30 ? f.name.slice(0,28) + '…' : f.name;
+      uploadInfo.textContent = name + ' • ' + Math.round(f.size/1024) + ' KB';
+      // small visual cue: flash check icon background
+      document.querySelector('.accent-green').classList.add('ring-2', 'ring-white', 'transition-all');
+      setTimeout(()=> document.querySelector('.accent-green').classList.remove('ring-2','ring-white'), 1200);
+    });
+
+    // scan button triggers file dialog as mock "scan"
+    scanBtn.addEventListener('click', () => {
+      // for demo: open file picker to simulate scan or set a fake filename
+      fileInput.click();
+    });
+
+    // Accessibility: allow clicking label to open file input (handled by native label-for behavior)
+  </script>
+</body>
+</html>
